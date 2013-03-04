@@ -5,11 +5,13 @@ gem 'pg', '0.12.2'
 
 #gem 'rails', '3.2.12'
 gem 'rails', '~>3.2.0'
+gem 'bootstrap-sass', '2.1'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '~>2.0.0'
-  gem 'railties', '3.2.1'
+  #gem 'sqlite3', '1.3.5'
+  gem 'postgres-pr', '0.6.3'
+  gem 'rspec-rails', '2.13.0'
+  #gem 'railties', '3.2.1'
   #gem 'guard-rspec'
   #gem 'guard-spork', '1.2.0'
   #gem 'spork', '0.9.2'
