@@ -30,4 +30,5 @@ class User < ActiveRecord::Base
 	#requires min length of 6
 	validates :password, presence: true, length: { minimum: 6 }
 
+	validates_confirmation_of :password_confirmation
 end
