@@ -28,7 +28,5 @@ class User < ActiveRecord::Base
 	format: { with: VALID_EMAIL_REGEX } 
 
 	#requires min length of 6
-	validates :password, presence: true, length: { minimum: 6 }
-
-	validates_confirmation_of :password_confirmation
+	validates :password, length: { minimum: 6 }
 end

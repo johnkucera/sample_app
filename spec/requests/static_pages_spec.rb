@@ -10,15 +10,16 @@ describe "Static pages" do
     it { should have_selector('h1', text: heading)}
     it { should have_selector('title',text: full_title(page_title))}
   end
+  
   describe "Home page" do
     before { visit root_path }
 
-    let(:heading) {'Sample App'}
+    let(:heading) { $appName}
     let(:page_title) {''}
     
-    it_should_behave_like "all static pages"  #I think this matches the shared examples "For" above
+  #  it_should_behave_like "all static pages"  #I think this matches the shared examples "For" above
 
-    it { should_not have_selector 'title', text: '| Home' }
+    it { should_not have_selector 'title', text: 'Home' }
   end
 
   describe "Help page" do
@@ -59,7 +60,7 @@ describe "Static pages" do
     click_link "Home"
     click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign up')
-    click_link "sample app"
-    page.should have_selector 'title', text: 'Sample App' #title doesn't have the | in it
+    click_link $appName
+    page.should have_selector 'title', text: $appName #title doesn't have the | in it
   end
 end
