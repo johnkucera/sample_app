@@ -1,12 +1,12 @@
 require 'spec_helper'
-@@pageName='Sign up'
+@pageName='Sign up'
 
 describe "User pages" do
   subject {page}
   describe "signup pages" do
     before { visit signup_path }
-    it { should have_selector('h1',	text: @@pageName) }
-    it { should have_selector('title', text: full_title(@@pageName))}
+    it { should have_selector('h1',	text: @pageName) }
+    it { should have_selector('title', text: full_title(@pageName))}
   end
 
   describe "profile page" do
@@ -54,14 +54,16 @@ describe "signup" do
         fill_in "Confirm Password", with: "foobar"
       end
 
-    describe "after saving the user" do
-    	before {click_button submit }
-    	let(:user) { User.find_by_email('user@example.com') }
+      describe "after saving the user" do
+      	before {click_button submit }
+      	let(:user) { User.find_by_email('user@example.com') }
 
-#    	it { should have_selector('title', text: user.name) }
-    	#tests that there's a welcome alert
-#    	it { should have_selector('div.alert.alert-success', text: "Welcome to the RSU Helper App!") } 
-    end
+  #    	it { should have_selector('title', text: user.name) }
+      	#tests that there's a welcome alert
+  #    	it { should have_selector('div.alert.alert-success', text: "Welcome to the RSU Helper App!") } 
+  #      it { should have_link('Log out') }
+
+      end
 
   	#Confirm that submitting with valid info DOES create a user (increment count by 1)
       it "should create a user" do

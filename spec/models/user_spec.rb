@@ -21,7 +21,8 @@ describe User do
     it { should respond_to(:password_digest) } #ensure that everyone has a pw
   	it { should respond_to(:password) } #create in mem vars to compare pw typed to pw confirmation
   	it { should respond_to(:password_confirmation) }  #var to store value of confirmed pw
-  	it { should respond_to(:authenticate) } #ensure this method is defined for user
+    it { should respond_to(:remember_token) }
+	it { should respond_to(:authenticate) } #ensure this method is defined for user
   	it { should be_valid }
 
   	describe "when name is not present" do
@@ -118,5 +119,9 @@ describe User do
 			specify { user_for_invalid_password.should be_false }
 		end
 	end
-
+	
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
 end
