@@ -7,7 +7,9 @@ gem 'rails', '3.2.12'
 #gem 'rails', '~>3.2.0'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
-
+gem 'faker', '1.0.1' #to create sample users
+gem 'will_paginate', '3.0.3'  #handles pagenation
+gem 'bootstrap-will_paginate', '0.0.6' #handles pagenation
 
 group :development, :test do
   #gem 'sqlite3', '1.3.5'
